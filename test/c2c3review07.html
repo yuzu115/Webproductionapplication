@@ -9,6 +9,16 @@
         <script>
         	//ここに課題の解答を入力してください！
             //「三角形の面積を求める関数」を作成し、作成した関数を使って質問内容と回答内容をドキュメントで表示するようにしてください！
+            function SankakuMenseki(teihen,takasa)
+            {
+                let ans=(teihen*takasa)/2
+                return ans;
+            }
+
+            let Ateihen=window.prompt('底辺を数字で入力してください');
+            let Atakasa=window.prompt('高さを数字で入力してください');
+            document.write('<h2>関数を作って三角形の面積を求める</h2>');
+            document.write('<p>この三角形の面積は'+SankakuMenseki(Ateihen,Atakasa)+'</p>');
         </script>
     </body>
 </html>

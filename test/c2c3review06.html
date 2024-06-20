@@ -8,6 +8,27 @@
         <script>
             //ここに課題の解答を入力してください！
             //「質問関数」を作成し、作成した関数を使って質問内容と回答内容をアラートで表示するようにしてください！
+            function Shitsumon(question,ans1,ans2)
+            {
+                let kotae=prompt(question,"");
+                if(kotae=="")
+                {
+                    alert("スミマセン、よくわかりません");
+                }
+                else if(kotae==null)
+                {
+                    alert("そうですか、また次回教えてください");
+                }
+                else
+                {
+                    alert(ans1+kotae+ans2);
+                }
+            }
+
+            Shitsumon("好きな食べ物は何ですか？","","ですか!一緒ですね");
+            Shitsumon("苦手な食べ物は何ですか？","","ですか、意外ですね");
+            Shitsumon("明日の予定は何ですか？","","ですか、楽しみですね");
+            Shitsumon("好きなゲームは何ですか？","","ですか！一緒にやらせてください");
         </script>
     </body>
 </html>
