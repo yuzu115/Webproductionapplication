@@ -76,4 +76,6 @@ function janken(){
     {
         ResultMsg(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
     }
+    
 }
+janken();
