@@ -12,7 +12,7 @@ function janken(){
     const CHOKI=2;
     const PA=3;
     //＜ジャンケンの入力ダイアログボックスを表示＞
-    function getHumHnad()
+    function getHumHand()
     {
         let hum = prompt('半角数字で1～3の数字を入力してください。\n\n' + GU + ':グー\n' + CHOKI + ':チョキ\n' + PA + ':パー'); //1:グー、2:チョキ、3:パーと、対応する変数と組み合わせて表示する。\nは改行コードなので、文字として扱う
         hum = parseInt(hum,10);     //入力文字を整数に変換（第2引数は「基数」を設定。基数は2進数・16進数の数字のところをさす。ここでは10進数を指定する）
@@ -24,6 +24,7 @@ function janken(){
         }
         else
         {
+            console.log(hum);
             return hum;
         }
     }
@@ -74,8 +75,18 @@ function janken(){
     //msgResult変数に、msgResult+コンピュータの出した手をcomHandNameと組み合わせて格納する
     function ResultMsg(com,hum)
     {
-        ResultMsg(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
+        Result(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
     }
     
+    let hum=getHumHand();
+    if(!hum)
+    {
+        alert('入力値をうまく認識できませんでした。ブラウザを再読み込みをすると、もう一度挑戦できます');
+    }
+    else
+    {
+        let com=getComHand();
+        alert(ResultMsg(com,hum));
+    }
 }
 janken();
