@@ -24,7 +24,6 @@ function janken(){
         }
         else
         {
-            console.log(hum);
             return hum;
         }
     }
@@ -75,18 +74,17 @@ function janken(){
     //msgResult変数に、msgResult+コンピュータの出した手をcomHandNameと組み合わせて格納する
     function ResultMsg(com,hum)
     {
-        Result(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
+       return Result(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
     }
+
+    //＜入力値がおかしかった際にメッセージを表示する＞
+let hum = getHumHand();
+if(!hum){
+    alert('入力値をうまく認識できませんでした。ブラウザを再読み込みすると、もう一度挑戦できます');  //アラートで再読み込みの文章を表示
+} else{
+    let com = getComHand();
+    alert(ResultMsg(com,hum));   //アラートで、getResultMsg(com,hum)関数を呼び出して表示させる
+}
     
-    let hum=getHumHand();
-    if(!hum)
-    {
-        alert('入力値をうまく認識できませんでした。ブラウザを再読み込みをすると、もう一度挑戦できます');
-    }
-    else
-    {
-        let com=getComHand();
-        alert(ResultMsg(com,hum));
-    }
 }
 janken();
