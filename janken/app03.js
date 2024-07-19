@@ -12,7 +12,7 @@ function janken(){
     const CHOKI=2;
     const PA=3;
     //＜ジャンケンの入力ダイアログボックスを表示＞
-    function getHumHnad()
+    function getHumHand()
     {
         let hum = prompt('半角数字で1～3の数字を入力してください。\n\n' + GU + ':グー\n' + CHOKI + ':チョキ\n' + PA + ':パー'); //1:グー、2:チョキ、3:パーと、対応する変数と組み合わせて表示する。\nは改行コードなので、文字として扱う
         hum = parseInt(hum,10);     //入力文字を整数に変換（第2引数は「基数」を設定。基数は2進数・16進数の数字のところをさす。ここでは10進数を指定する）
@@ -25,7 +25,6 @@ function janken(){
         else
         {
             return hum;
-          
         }
     }
     //コンピュータの手を決める
@@ -58,7 +57,7 @@ function janken(){
         //if文での判定。人間とコンピュータの手が一緒なら…
         if(hum===com)
             {
-                    return '結果は「あいこ」';        //結果の変数にあいこの文字列を格納
+                    return '結果は「あいこ」。';        //結果の変数にあいこの文字列を格納
             }
         //else if文で、自分の手がコンピュータに勝つパターンなら…
         else if((com===GU&&hum===PA)||(com===CHOKI&&hum===GU)||(com===PA&&hum===CHOKI))
@@ -75,24 +74,24 @@ function janken(){
     //msgResult変数に、msgResult+コンピュータの出した手をcomHandNameと組み合わせて格納する
     function ResultMsg(com,hum)
     {
-        Result(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
+       return Result(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
     }
-    let hum=getHumHnad();
-    if(!hum)
-        {
-            alert('入力値をうまく認識できませんでした。ブラウザを再読み込みすると、もう一度挑戦できます');  //アラートで再読み込みの文章を表示
-        }
-        else
-        {
-            var com=getComHand();
-            alert(ResultMsg(com,hum));
-            return  Result(com, hum);
-        }
+
+    //＜入力値がおかしかった際にメッセージを表示する＞
+    let hum = getHumHand();
+    if(!hum){
+        alert('入力値をうまく認識できませんでした。ブラウザを再読み込みすると、もう一度挑戦できます');  //アラートで再読み込みの文章を表示
+    } else{
+        let com = getComHand();
+        alert(ResultMsg(com,hum));   //アラートで、getResultMsg(com,hum)関数を呼び出して表示させる
+        return  Result(com, hum);
+    }
     
 }
 let win =0;
 let isLose =false;
-while (!isLose ) {
+while (!isLose ) 
+{
     let result = janken();
     if (result === '結果は「あいこ」') {
         continue;
