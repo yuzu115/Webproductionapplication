@@ -25,6 +25,7 @@ function janken(){
         else
         {
             return hum;
+          
         }
     }
     //コンピュータの手を決める
@@ -57,7 +58,7 @@ function janken(){
         //if文での判定。人間とコンピュータの手が一緒なら…
         if(hum===com)
             {
-                    return '結果は「あいこ」。';        //結果の変数にあいこの文字列を格納
+                    return '結果は「あいこ」';        //結果の変数にあいこの文字列を格納
             }
         //else if文で、自分の手がコンピュータに勝つパターンなら…
         else if((com===GU&&hum===PA)||(com===CHOKI&&hum===GU)||(com===PA&&hum===CHOKI))
@@ -74,8 +75,33 @@ function janken(){
     //msgResult変数に、msgResult+コンピュータの出した手をcomHandNameと組み合わせて格納する
     function ResultMsg(com,hum)
     {
-        ResultMsg(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
+        Result(com,hum) + 'コンピュータの出した手は「' + getHandName(com) + '」だったよ'; 
     }
+    let hum=getHumHnad();
+    if(!hum)
+        {
+            alert('入力値をうまく認識できませんでした。ブラウザを再読み込みすると、もう一度挑戦できます');  //アラートで再読み込みの文章を表示
+        }
+        else
+        {
+            var com=getComHand();
+            alert(ResultMsg(com,hum));
+            return  Result(com, hum);
+        }
     
 }
-janken();
+let win =0;
+let isLose =false;
+while (!isLose ) {
+    let result = janken();
+    if (result === '結果は「あいこ」') {
+        continue;
+    }
+    if (result === '勝ったぞ、やったね') {
+        win++;
+        alert('ただいま「' + win + '」勝です。 ');
+        continue;
+    }
+    alert('連勝はストップです。記録は「' + win + '」勝でした。');
+    isLose = true;
+}
