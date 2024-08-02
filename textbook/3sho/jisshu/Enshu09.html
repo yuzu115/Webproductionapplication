@@ -20,6 +20,9 @@
 let imgLeft = 50; // 表示位置
 let direct = 1;   // 進行方向（正：右方向／負：左方向）
 function timerstart(){
+  if(imgLeft<50||200<imgLeft){
+    direct*=-1;
+  }
   imgLeft += 5 * direct;
   document.getElementById("img1").style.left = imgLeft + "px";
   setTimeout("timerstart()", 100);
