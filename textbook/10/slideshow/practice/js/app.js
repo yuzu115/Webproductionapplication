@@ -1,7 +1,7 @@
 $(function(){
     $('.slideshow').slick({
-        autoplay: true;
+        autoplay: true,
         autopLaySpeed: 3000,
-        dots: true;
+        dots: true
     });
 });
