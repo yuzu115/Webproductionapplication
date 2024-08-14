@@ -10,14 +10,17 @@
            }
         </style>
         <script>
+           // alert("hello,world");
             function big(){
-                document.getElementById("gazo").style.width="400px";
+                var ookii;
+                ookii=document.getElementById("gazo");
+                ookii.style.width="600px";
             }
         </script>
     </head>
     <body>
         <h1>テントくんだ！</h1>
-        <div><img src="tento.png" style="width:200px"></div><br>
-        <button onClick="big()">大きくする</button>
+        <div><img id="gazo" src="tento.png" style="width:200px"></div><br>
+        <button onclick="big()">大きくする</button>
     </body>
 </html>
