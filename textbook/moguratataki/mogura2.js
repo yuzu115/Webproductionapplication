@@ -13,9 +13,9 @@ window.onload=function(){
 };
 
 function start(){
-    tentokun1=document.getElementById("gazo1");
-    tentokun2=document.getElementById("gazo2");
-    tentokun3=document.getElementById("gazo3");
+    tento1=document.getElementById("gazo1");
+    tento2=document.getElementById("gazo2");
+    tento3=document.getElementById("gazo3");
     hyoji=document.getElementById("ten");
     botan=document.getElementById("start");
 
@@ -44,10 +44,10 @@ function start(){
     setTimeout(nokori10,50000);
 }
 
-function click(){
-    gazo.src="naki.png";
+function click(gazou){
+    gazou.src="naki.png";
     setTimeout(function(){
-        modosu1(gazou);
+        modosu(gazou);
     },1000);
     tensu=tensu+1;
     hyoji.innerHTML=tensu;
@@ -105,6 +105,7 @@ function stop(){
     tento2.style.visibility="hidden";
     tento3.style.visibility="hidden";
     if(tensu>saiko){
+        saiko=tensu;
         kiroku=document.getElementById("saiko");
         kiroku.innerHTML=saiko;
     }
